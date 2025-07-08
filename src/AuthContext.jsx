@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -10,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     
     const fetchUser = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/dashboard', {
+        const res = await axios.get(`${BASE_URL}/api/dashboard`, {
           withCredentials: true,
         });
         console.log("✅ USER from backend:", res.data);

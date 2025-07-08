@@ -62,7 +62,7 @@ const styles = {
   },
   buttons: {
     display: 'flex',
-    flexDirection: window.innerWidth < 480 ? 'column' : 'row', // responsive buttons
+    flexDirection: window.innerWidth < 480 ? 'column' : 'row', 
     gap: '20px',
     justifyContent: 'center',
     flexWrap: 'wrap',

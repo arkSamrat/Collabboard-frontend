@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom'; 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -15,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/login', form, {
+      const response = await axios.post(`${BASE_URL}/login`, form, {
         withCredentials: true,
       });
       setMessage(response.data.message || 'Login successful');

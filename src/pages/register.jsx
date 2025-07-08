@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Dashboard from './dashboard';
-
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 const Register = () => {
   const [form, setForm] = useState({
     name: '',
@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/register-api', form, {
+      const response = await axios.post(`${BASE_URL}/register-api`, form, {
         withCredentials: true,
       });
       setMessage(response.data.message);

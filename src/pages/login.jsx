@@ -24,6 +24,7 @@ const Login = () => {
       navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
+      alert(error);
       setMessage('');
     }
   };
